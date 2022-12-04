@@ -4,4 +4,4 @@
 
 API: https://metmuseum.github.io/#search
 
-Test main
+Data API added... currently fetching 20 paintings with the following fields: objectID, primaryImageSmall, title, artistDisplayName
