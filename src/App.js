@@ -1,11 +1,14 @@
 
-import Title from "./components/styled/Title"
+
+import DataTesting from "./components/DataTesting"
 
 function App() {
 
 
     return (
-        <Title>Art Finder</Title>
+       <>
+            <DataTesting />
+       </>
     )
 }
 
