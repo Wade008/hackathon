@@ -1,15 +1,13 @@
-
-
-import DataTesting from "./components/DataTesting"
+import SearchBar from "./components/SearchBar";
+import DataTesting from "./components/DataTesting";
 
 function App() {
-
-
-    return (
-       <>
-            <DataTesting />
-       </>
-    )
+  return (
+    <>
+      <SearchBar />
+      <DataTesting />
+    </>
+  );
 }
 
-export default App
+export default App;
