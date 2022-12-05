@@ -3,8 +3,9 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 
 
-const DataApi = (url) => {
 
+const DataApi = (url) => {
+    const [searchTerm, setSearchTerm] = useState("")
     const [artData, setArtData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
@@ -44,7 +45,7 @@ const DataApi = (url) => {
 
     }, [url])
 
-    return [isLoading, artData]
+    return [isLoading, artData, setSearchTerm]
 
 }
 

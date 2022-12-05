@@ -1,5 +1,6 @@
-import SearchBar from "./components/SearchBar";
 import DataTesting from "./components/DataTesting";
+import SearchBar from "./components/SearchBar";
+
 
 function App() {
   return (

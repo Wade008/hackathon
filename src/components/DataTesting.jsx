@@ -4,8 +4,8 @@ import DataApi from "./utils/dataApi"
 
 function DataTesting() {
 
-    const [isLoading, data] = DataApi("/public/collection/v1/search?hasImages=true&departmentId=11&q=paint")
 
+    const [isLoading, data] = DataApi("/public/collection/v1/search?hasImages=true&departmentId=11&q=paint")
     // console.log(data)
 
 
@@ -26,7 +26,8 @@ function DataTesting() {
                             <div key={item.objectID}>
                                 <p>Title: {item.title}</p>
                                 <p>Artist: {item.artistDisplayName}</p>
-                                <img src={item.primaryImageSmall} />
+                                <img src={item.primaryImageSmall} 
+                                alt={item.objectID}/>
                             </div>
                         )
                     })}
