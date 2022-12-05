@@ -15,12 +15,20 @@ const DataApi = (url) => {
             try {
                 const resId = await axios.get(url);
 
-                const dataIDs = resId.data["objectIDs"].slice(0, 20);
+                const dataIDs = resId.data["objectIDs"].slice(0, 50);
                 const dataArr = [];
-                for (const id of dataIDs) {
-                    const resData = await axios.get(`/public/collection/v1/objects/${id}`)
 
-                    const artData = resData.data
+                const requests = dataIDs.map(id => {
+                    return axios.get(`/public/collection/v1/objects/${id}`)
+                })
+
+                const responses = await Promise.all(requests)
+
+                for (const response of responses) {
+                    // const resData = axios.get(`/public/collection/v1/objects/${id}`)
+
+                    const artData = response.data
+
                     //destructure to only access the relevant fields
                     const subData = (({ objectID, primaryImageSmall, title, artistDisplayName }) => ({ objectID, primaryImageSmall, title, artistDisplayName }))(artData);
 
@@ -28,10 +36,12 @@ const DataApi = (url) => {
 
                 }
 
+
+
                 setArtData(dataArr.reverse())
                 setIsLoading(false)
 
-            } 
+            }
 
             catch (err) {
 
