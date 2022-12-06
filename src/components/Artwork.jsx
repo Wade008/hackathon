@@ -1,32 +1,29 @@
 // import styled from "styled-components"
 import Title from "./styled/Title"
-import DataApi from "./utils/dataApi"
 
-function DataTesting() {
 
-    const [isLoading, data] = DataApi("/public/collection/v1/search?hasImages=true&departmentId=11&q=paint")
+function Artwork(props) {
 
-    // console.log(data)
-
+    const {isLoading, data} = props
 
     return (
         <>
             {isLoading ? (
                 <div>
-                    <Title>Data Testing</Title>
+                   
                     <p>Loading data...please wait</p>
 
                 </div>
 
             ) : (
                 <div>
-                    <Title>Data Testing</Title>
+                    <Title>An assortment of European Paintings</Title>
                     {data.map((item) => {
                         return (
                             <div key={item.objectID}>
                                 <p>Title: {item.title}</p>
                                 <p>Artist: {item.artistDisplayName}</p>
-                                <img src={item.primaryImageSmall} />
+                                <img alt="painting" src={item.primaryImageSmall} />
                             </div>
                         )
                     })}
@@ -41,4 +38,4 @@ function DataTesting() {
 
 }
 
-export default DataTesting
+export default Artwork
