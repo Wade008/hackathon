@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -10,12 +9,13 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
+
   position: relative;
-  max-width: 1260;
+  max-width: 1280;
   width: 100%;
   height: 55px;
   background: lightBlue;
-  margin: 0 auto;
+  margin: 20px;
   border-radius: 40px;
   color: white;
 
@@ -36,7 +36,7 @@ export const Content = styled.div`
     width: 95%;
     background: transparent;
     height: 40px;
-    color: white;
+    color: #545353;
 
     :focus {
       outline: none;
