@@ -11,6 +11,7 @@ import Home from "./components/Home"
 import NavBar from "./components/mui/NavBar"
 import Artwork from "./components/Artwork"
 import Search from "./components/Search"
+import Favourite from "./components/Favourite"
 import DataApi from "./components/utils/dataApi"
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
 
     const [isLoading, data] = DataApi("/public/collection/v1/search?hasImages=true&departmentId=11&q=paint")
 
-    console.log(data)
+    // console.log(data)
 
     const router = createBrowserRouter(
         createRoutesFromElements(
@@ -30,6 +31,7 @@ function App() {
                 />}
                 />
                 <Route path="search" element={<Search />} />
+                <Route path="favourites" element={<Favourite />} />
             </Route>
         )
 

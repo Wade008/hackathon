@@ -17,6 +17,10 @@ function NavBar() {
             title: "Search",
             LinkTo: "search",
         },
+        {
+            title: "Favourites",
+            LinkTo: "favourites",
+        },
     ]
 
 
