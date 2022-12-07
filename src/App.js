@@ -1,15 +1,63 @@
-import Title from "./components/styled/Title"
-import ArtThumbnailList from "./components/ArtThumbnailList"
+
+import {
+    createBrowserRouter,
+    createRoutesFromElements,
+    Outlet,
+    Route,
+    RouterProvider
+} from "react-router-dom"
+
+import Home from "./components/Home"
+import NavBar from "./components/mui/NavBar"
+import Artwork from "./components/Artwork"
+import Search from "./components/Search"
+import DataApi from "./components/utils/dataApi"
 
 function App() {
 
 
+    const [isLoading, data] = DataApi("/public/collection/v1/search?hasImages=true&departmentId=11&q=paint")
+
+    console.log(data)
+
+    const router = createBrowserRouter(
+        createRoutesFromElements(
+            <Route path="/" element={<MainPage />}>
+                <Route path="/" element={<Home />} />
+                <Route path="artwork" element={<Artwork
+                    isLoading={isLoading}
+                    data={data}
+                />}
+                />
+                <Route path="search" element={<Search />} />
+            </Route>
+        )
+
+    )
+
+    return (
+        <div className="App">
+
+            <RouterProvider router={router} />
+
+        </div>
+    )
+}
+
+
+function MainPage() {
     return (
         <>
-            <Title>Art Finder</Title>
-            <ArtThumbnailList />
+            <NavBar />
+            <Outlet />
         </>
     )
 }
 
+
+
+
+
+
 export default App
+
