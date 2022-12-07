@@ -12,6 +12,8 @@ import NavBar from "./components/mui/NavBar"
 import Artwork from "./components/Artwork"
 import Search from "./components/Search"
 import DataApi from "./components/utils/dataApi"
+import Footer from "./components/Footer"
+import NotFound from "./components/NotFound/NotFound"
 
 function App() {
 
@@ -30,6 +32,7 @@ function App() {
               />}
               />
               <Route path="search" element={<Search />} />
+              <Route path='/*' element={<NotFound />} />
           </Route>
       )
 
@@ -50,6 +53,7 @@ function MainPage() {
       <>
           <NavBar />
           <Outlet />
+          <Footer />
       </>
   )
 }
