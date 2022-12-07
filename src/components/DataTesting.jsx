@@ -1,4 +1,5 @@
 // import styled from "styled-components"
+import Spinner from "./Spinner"
 import Title from "./styled/Title"
 import DataApi from "./utils/dataApi"
 
@@ -7,14 +8,14 @@ function DataTesting() {
 
     const [isLoading, data] = DataApi("/public/collection/v1/search?hasImages=true&departmentId=11&q=paint")
     // console.log(data)
-
+    const allTitles = []
 
     return (
         <>
             {isLoading ? (
                 <div>
                     <Title>Data Testing</Title>
-                    <p>Loading data...please wait</p>
+                    <Spinner/>
 
                 </div>
 
