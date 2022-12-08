@@ -13,6 +13,7 @@ function ArtThumbnailList(props) {
                     return (
                         <ArtThumbnail
                             key={artwork.objectID}
+                            id={artwork.objectID}
                             title={artwork.title}
                             artist={artwork.artistDisplayName}
                             src={artwork.primaryImageSmall}
