@@ -15,7 +15,7 @@ const DataApi = (url) => {
             try {
                 const resId = await axios.get(url);
 
-                const dataIDs = resId.data["objectIDs"].slice(0, 50);
+                const dataIDs = resId.data["objectIDs"].slice(0, 100);
                 const dataArr = [];
 
                 const requests = dataIDs.map(id => {
@@ -32,7 +32,9 @@ const DataApi = (url) => {
                     //destructure to only access the relevant fields
                     const subData = (({ objectID, primaryImageSmall, title, artistDisplayName }) => ({ objectID, primaryImageSmall, title, artistDisplayName }))(artData);
 
-                    dataArr.unshift(subData)
+                    if (subData.primaryImageSmall !== "") {
+                        dataArr.unshift(subData)
+                    }
 
                 }
 
