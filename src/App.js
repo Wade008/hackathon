@@ -30,7 +30,7 @@ function App() {
 
         
         const artObject = data.find(item => {
-            return item.objectID === e.target.value
+            return item.objectID == e.target.value
         })
 
         console.log(artObject)
