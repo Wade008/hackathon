@@ -46,6 +46,7 @@ const SearchBar = (props) => {
 
             <ArtThumbnail
               key={item.objectID}
+              id={item.objectID}
               title={item.title}
               artist={item.artistDisplayName}
               src={item.primaryImageSmall}

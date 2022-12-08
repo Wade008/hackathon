@@ -4,7 +4,7 @@ import Spinner from "./Spinner";
 import ArtThumbnailList from "./ArtThumbnailList"
 
 function Artwork(props) {
-  const { isLoading, data } = props;
+  const { isLoading, data, handleFavourites } = props;
 
   return (
     <>
@@ -16,7 +16,7 @@ function Artwork(props) {
       ) : (
         <div>
           <Title>An assortment of European Paintings</Title>
-          <ArtThumbnailList artworkList={data} />
+          <ArtThumbnailList artworkList={data} handleFavourites={handleFavourites}/>
 
         </div>
       )}

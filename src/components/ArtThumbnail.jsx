@@ -1,18 +1,15 @@
 
-
+import { useState } from "react"
 import { Wrapper, ThumbnailImage } from "./styled/Artwork.styles"
 
 
 
 function ArtThumbnail(props) {
 
-    const artwork = props
-
-
     const handleClick = (e) => {
         e.preventDefault()
 
-        console.log(e.target.value)
+        props.handleFavourites(e)
     }
 
 
@@ -23,18 +20,18 @@ function ArtThumbnail(props) {
                 className="btn-fav"
                 alt="Add to favourites"
                 title="Add to favourites"
-                value={artwork.id}
+                value={props.id}
                 onClick={handleClick}
             >
                 &hearts;
 
             </button>
 
-            <ThumbnailImage src={artwork.src} alt={artwork.title}></ThumbnailImage>
+            <ThumbnailImage src={props.src} alt={props.title}></ThumbnailImage>
             <div className="artwork-snippet">
-                <h3 className="artwork-title">{artwork.title}</h3>
-                <div className="artwork-artist">{artwork.artist}</div>
-                <p>{artwork.id}</p>
+                <h3 className="artwork-title">{props.title}</h3>
+                <div className="artwork-artist">{props.artist}</div>
+
             </div>
         </Wrapper>
     )

@@ -4,7 +4,7 @@ import { ArtworkList } from "./styled/Artwork.styles"
 
 function ArtThumbnailList(props) {
   
-    const {artworkList} = props
+    const {artworkList, handleFavourites} = props
 
     return (
         <>
@@ -17,6 +17,7 @@ function ArtThumbnailList(props) {
                             title={artwork.title}
                             artist={artwork.artistDisplayName}
                             src={artwork.primaryImageSmall}
+                            handleFavourites={handleFavourites}
                         />
                     )
                 })}
