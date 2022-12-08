@@ -5,29 +5,20 @@ const ArtworkList = styled.div`
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
-/* grid-template-columns: repeat(5, 1fr); */
-/* column-gap: 2rem;
-row-gap: 2rem; */
+align-items: center;
 padding: 0 2rem;
 `
 
-function ArtThumbnailList() {
-    // const artwork = [
-    //     {
-    //         id: `id-${n}`,
-    //         title: `Painting ${n}`,
-    //         artist: `Artist ${n}`,
-    //     },
-    // ]
-
+function ArtThumbnailList({ artworkList }) {
+    // Mock list for testing placeholder thumbnails
     let mockArtworkList = [];
-    for (let i = 1; i < 50; i ++ ) {
+    for (let i = 1; i < 50; i++) {
         mockArtworkList.push(
             {
-                id: `id-${i}`,
+                objectID: `id-${i}`,
                 title: `Painting ${i}`,
-                artist: `Artist ${i}`,
-                imageURL: "/#"
+                artistDisplayName: `Artist ${i}`,
+                primaryImageSmall: "/#"
             }
         )
     }
@@ -35,13 +26,13 @@ function ArtThumbnailList() {
     return (
         <>
             <ArtworkList id="artworkList">
-                {mockArtworkList.map(artwork => {
+                {artworkList.map(artwork => {
                     return (
                         <ArtThumbnail
-                            key={artwork.id}
+                            key={artwork.objectID}
                             title={artwork.title}
-                            artist={artwork.artist}
-                            image={artwork.imageURL}
+                            artist={artwork.artistDisplayName}
+                            src={artwork.primaryImageSmall}
                         />
                     )
                 })}

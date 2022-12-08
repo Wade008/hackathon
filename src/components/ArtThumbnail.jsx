@@ -2,16 +2,19 @@ import styled from "styled-components"
 
 const Wrapper = styled.div`
     position: relative;
-    margin: 2rem;
+    margin: 1rem 2rem;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
     
     h3 {
-        margin-top: .5rem;
+        margin-top: 0.5rem;
         margin-bottom: 0;
     }
 
     :hover {
         transform: scale(1.05);
         cursor: pointer; // Mock hyperlink when hovering over artwork
+        background-color: #f0f0f0;
 
         .btn-fav {
             opacity: 1;
@@ -19,7 +22,7 @@ const Wrapper = styled.div`
 
     }
 
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-out;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,12 +33,13 @@ const Wrapper = styled.div`
 
     .btn-fav {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 0.75rem;
+        right: 0.75rem;
         font-size: 1.5rem;
         transition: all 0.2s ease-in-out;
         font-family: 'Inter', sans-serif;
-        color: #888;
+        color: #fff;
+        background-color: transparent;
         text-decoration: none;
         border: none;
         opacity: 0;
@@ -47,13 +51,13 @@ const Wrapper = styled.div`
     }
 `
 
-const ThumbnailImage = styled.div`
+const ThumbnailImage = styled.img`
     background-color: #eee;
     width: 200px;
-    height: 250px;
+    max-height: 250px;
 `
 
-function ArtThumbnail(props) {
+function ArtThumbnail(artwork) {
     return (
         <Wrapper> {/* Add onClick handler to navigate to details page */}
             <button
@@ -63,11 +67,10 @@ function ArtThumbnail(props) {
                 &hearts;
                 {/* Add onClick handler to add to favourites */}
             </button>
-            {/* Add handler to set background image of thumbnail when it loads */}
-            <ThumbnailImage></ThumbnailImage>
+            <ThumbnailImage src={artwork.src} alt={artwork.title}></ThumbnailImage>
             <div className="artwork-snippet">
-                <h3 className="artwork-title">{props.title}</h3>
-                <div className="artwork-artist">{props.artist}</div>
+                <h3 className="artwork-title">{artwork.title}</h3>
+                <div className="artwork-artist">{artwork.artist}</div>
             </div>
         </Wrapper>
     )
