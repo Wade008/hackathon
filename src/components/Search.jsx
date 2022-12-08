@@ -7,7 +7,7 @@ function Search() {
 
     return (
         <div>
-            <Title>Search page</Title>
+
             <SearchBar/>
         </div>)
 }
