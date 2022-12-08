@@ -3,12 +3,14 @@ import SearchBar from "./SearchBar"
 import Title from "./styled/Title"
 
 
-function Search() {
+function Search(props) {
+
+    const { data } = props
 
     return (
         <div>
             <Title>Search page</Title>
-            <SearchBar/>
+            <SearchBar data={data}/>
         </div>)
 }
 

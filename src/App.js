@@ -1,10 +1,10 @@
 
 import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Outlet,
-  Route,
-  RouterProvider
+    createBrowserRouter,
+    createRoutesFromElements,
+    Outlet,
+    Route,
+    RouterProvider
 } from "react-router-dom"
 
 import Home from "./components/Home"
@@ -19,7 +19,7 @@ import NotFound from "./components/NotFound/NotFound"
 function App() {
 
 
-  const [isLoading, data] = DataApi("/public/collection/v1/search?hasImages=true&departmentId=11&q=paint")
+    const [isLoading, data] = DataApi("/public/collection/v1/search?hasImages=true&departmentId=11&q=paint")
 
     // console.log(data)
 
@@ -32,31 +32,31 @@ function App() {
                     data={data}
                 />}
                 />
-                <Route path="search" element={<Search />} />
+                <Route path="search" element={<Search data={data} />} />
                 <Route path="favourites" element={<Favourite />} />
             </Route>
         )
 
-  )
+    )
 
-  return (
-      <div className="App">
+    return (
+        <div className="App">
 
-          <RouterProvider router={router} />
+            <RouterProvider router={router} />
 
-      </div>
-  )
+        </div>
+    )
 }
 
 
 function MainPage() {
-  return (
-      <>
-          <NavBar />
-          <Outlet />
-          <Footer />
-      </>
-  )
+    return (
+        <>
+            <NavBar />
+            <Outlet />
+            <Footer />
+        </>
+    )
 }
 
 
