@@ -1,9 +1,9 @@
 
 
-import Title from "./styled/Title"
+import { Title } from "./styled/Text"
 
 
-function Favourite() {
+function Favourite(Props) {
 
     return (
         <div>

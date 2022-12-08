@@ -6,7 +6,7 @@ import {
     Route,
     RouterProvider
 } from "react-router-dom"
-
+import { useState } from "react"
 import Home from "./components/Home"
 import NavBar from "./components/mui/NavBar"
 import Artwork from "./components/Artwork"
@@ -22,6 +22,9 @@ function App() {
     const [isLoading, data] = DataApi("/public/collection/v1/search?hasImages=true&departmentId=11&q=paint")
 
     // console.log(data)
+
+    const [favourites, setFavoutites] = useState([])
+
 
     const router = createBrowserRouter(
         createRoutesFromElements(

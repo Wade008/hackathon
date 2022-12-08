@@ -2,8 +2,11 @@
 
 import { Wrapper, ThumbnailImage } from "./styled/Artwork.styles"
 
-function ArtThumbnail(artwork) {
 
+
+function ArtThumbnail(props) {
+
+    const artwork = props
 
     return (
         <Wrapper> {/* Add onClick handler to navigate to details page */}

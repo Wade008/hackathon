@@ -1,5 +1,5 @@
 
-import Title from "./styled/Title"
+import { Title } from "./styled/Text"
 
 
 function Home() {
