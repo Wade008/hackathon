@@ -3,8 +3,7 @@ import { Wrapper, Content } from "./Header.styles";
 const Header = () => {
   return (
     <Wrapper>
-      <Content>Artwork from <br/>
-      The Metropolitan Museum of Art</Content>
+      <Content>Artwork from the Met</Content>
     </Wrapper>
   );
 };

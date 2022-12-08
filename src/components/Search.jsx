@@ -1,4 +1,5 @@
 
+
 import SearchBar from "./SearchBar"
 import Title from "./styled/Title"
 
@@ -9,13 +10,8 @@ function Search(props) {
 
     return (
         <div>
-<<<<<<< HEAD
-
-            <SearchBar/>
-=======
             <Title>Search page</Title>
             <SearchBar data={data}/>
->>>>>>> main
         </div>)
 }
 

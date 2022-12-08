@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const TextCenter = styled.text`
-  position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -9,15 +12,10 @@ export const TextCenter = styled.text`
 
   a:link {
     color: darkgrey;
-    text-decoration: none;
+
   }
 
-  a:hover {
-  text-decoration: underline;
-}
-
 a:visited {
-  text-decoration: none;
   color: grey
 }
   `

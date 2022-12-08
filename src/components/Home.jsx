@@ -5,13 +5,13 @@ function Home() {
   return (
     <div style={{ position: "relative" }}>
       <TextCenter>
-        This website allows the access to the collection from
+        This website allows the access to the collection from{" "}
         <a
           href="https://www.metmuseum.org/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          The Met
+          The Metropolitan Museum of Art
         </a>
       </TextCenter>
       <img
