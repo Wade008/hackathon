@@ -1,6 +1,7 @@
 // import styled from "styled-components"
-import Title from "./styled/Title";
+import { Title, Para } from "./styled/Text";
 import Spinner from "./Spinner";
+import ArtThumbnailList from "./ArtThumbnailList"
 
 function Artwork(props) {
   const { isLoading, data } = props;
@@ -9,21 +10,14 @@ function Artwork(props) {
     <>
       {isLoading ? (
         <div>
-          <p>Loading data...please wait</p>
+          <Para>Loading data...please wait</Para>
           <Spinner />
         </div>
       ) : (
         <div>
           <Title>An assortment of European Paintings</Title>
-          {data.map((item) => {
-            return (
-              <div key={item.objectID}>
-                <p>Title: {item.title}</p>
-                <p>Artist: {item.artistDisplayName}</p>
-                <img alt="painting" src={item.primaryImageSmall} />
-              </div>
-            );
-          })}
+          <ArtThumbnailList artworkList={data} />
+
         </div>
       )}
     </>

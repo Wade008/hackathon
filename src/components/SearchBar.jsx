@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect, useRef } from "react";
-
 //image
 import searchIcon from "./styled/images/search-icon.svg";
-
 //styles
-import { Wrapper, Content } from "./styled/SearchBar.styles";
+import { SearchWrapper, Content } from "./styled/SearchBar.styles";
+import ArtThumbnail from "./ArtThumbnail";
+import { ArtworkList } from "./styled/Artwork.styles"
 
 const SearchBar = (props) => {
 
@@ -28,7 +28,7 @@ const SearchBar = (props) => {
 
   return (
     <>
-      <Wrapper>
+      <SearchWrapper>
         <Content>
           <img src={searchIcon} alt="search-icon" />
           <input
@@ -39,19 +39,21 @@ const SearchBar = (props) => {
 
           />
         </Content>
-      </Wrapper>
-      {userInput ? filteredArt.map((item) => {
-        return (
-          <div key={item.objectID}>
-            <p>Title: {item.title}</p>
-            <p>Artist: {item.artistDisplayName}</p>
-            <img alt="painting" src={item.primaryImageSmall} />
-          </div>
-        );
-      }) : ""}
+      </SearchWrapper>
+      <ArtworkList id="artworkList">
+        {userInput ? filteredArt.map((item) => {
+          return (
 
+            <ArtThumbnail
+              key={item.objectID}
+              title={item.title}
+              artist={item.artistDisplayName}
+              src={item.primaryImageSmall}
+            />
 
-
+          );
+        }) : ""}
+      </ArtworkList>
     </>
   );
 };

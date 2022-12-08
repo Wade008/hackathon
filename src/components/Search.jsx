@@ -1,7 +1,7 @@
 
 
 import SearchBar from "./SearchBar"
-import Title from "./styled/Title"
+import { Title } from "./styled/Text"
 
 
 function Search(props) {
@@ -11,7 +11,7 @@ function Search(props) {
     return (
         <div>
             <Title>Search page</Title>
-            <SearchBar data={data}/>
+            <SearchBar data={data} />
         </div>)
 }
 

@@ -1,47 +1,22 @@
 import styled from "styled-components"
 import ArtThumbnail from "./ArtThumbnail"
+import { ArtworkList } from "./styled/Artwork.styles"
 
-const ArtworkList = styled.div`
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-/* grid-template-columns: repeat(5, 1fr); */
-/* column-gap: 2rem;
-row-gap: 2rem; */
-padding: 0 2rem;
-`
-
-function ArtThumbnailList() {
-    // const artwork = [
-    //     {
-    //         id: `id-${n}`,
-    //         title: `Painting ${n}`,
-    //         artist: `Artist ${n}`,
-    //     },
-    // ]
-
-    let mockArtworkList = [];
-    for (let i = 1; i < 50; i ++ ) {
-        mockArtworkList.push(
-            {
-                id: `id-${i}`,
-                title: `Painting ${i}`,
-                artist: `Artist ${i}`,
-                imageURL: "/#"
-            }
-        )
-    }
+function ArtThumbnailList(props) {
+  
+    const {artworkList} = props
 
     return (
         <>
             <ArtworkList id="artworkList">
-                {mockArtworkList.map(artwork => {
+                {artworkList.map(artwork => {
                     return (
                         <ArtThumbnail
-                            key={artwork.id}
+                            key={artwork.objectID}
+                            id={artwork.objectID}
                             title={artwork.title}
-                            artist={artwork.artist}
-                            image={artwork.imageURL}
+                            artist={artwork.artistDisplayName}
+                            src={artwork.primaryImageSmall}
                         />
                     )
                 })}
