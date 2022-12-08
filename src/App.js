@@ -21,7 +21,6 @@ function App() {
 
   const [isLoading, data] = DataApi("/public/collection/v1/search?hasImages=true&departmentId=11&q=paint")
 
-<<<<<<< HEAD
     // console.log(data)
 
     const router = createBrowserRouter(
@@ -37,23 +36,6 @@ function App() {
                 <Route path="favourites" element={<Favourite />} />
             </Route>
         )
-=======
-  console.log(data)
-
-  const router = createBrowserRouter(
-      createRoutesFromElements(
-          <Route path="/" element={<MainPage />}>
-              <Route path="/" element={<Home />} />
-              <Route path="artwork" element={<Artwork
-                  isLoading={isLoading}
-                  data={data}
-              />}
-              />
-              <Route path="search" element={<Search />} />
-              <Route path='/*' element={<NotFound />} />
-          </Route>
-      )
->>>>>>> Nassy
 
   )
 
