@@ -5,7 +5,14 @@ const Wrapper = styled.div`
     margin: 1rem 2rem;
     padding: 0.75rem;
     border-radius: 0.25rem;
-    
+    flex-basis: 100%;
+    flex-grow: 1;
+
+    @media screen and (min-width: 768px) {
+        flex-basis: 30%;
+        max-width: 300px;
+    }
+
     h3 {
         margin-top: 0.5rem;
         margin-bottom: 0;
@@ -27,10 +34,6 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
 
-    .artwork-snippet {
-        width: 200px;
-    }
-
     .btn-fav {
         position: absolute;
         top: 0.75rem;
@@ -49,12 +52,16 @@ const Wrapper = styled.div`
             cursor: pointer;
         }
     }
+
+    .artwork-snippet {
+        width: 100%;
+    }
 `
 
 const ThumbnailImage = styled.img`
     background-color: #eee;
-    width: 200px;
-    max-height: 250px;
+    width: 100%;
+    transition: width 0.5s ease-out;
 `
 
 function ArtThumbnail(artwork) {
