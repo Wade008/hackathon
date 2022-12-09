@@ -4,7 +4,7 @@ import axios from "axios"
 
 
 
-const DataApi = (url) => {
+const DataApi = () => {
     const [artData, setArtData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
@@ -13,7 +13,7 @@ const DataApi = (url) => {
         async function getArt() {
 
             try {
-                const resId = await axios.get(url);
+                const resId = await axios.get("/public/collection/v1/search?hasImages=true&departmentId=11&q=paint");
 
                 const dataIDs = resId.data["objectIDs"].slice(0, 100);
                 const dataArr = [];
@@ -34,7 +34,7 @@ const DataApi = (url) => {
 
                     const subData = {
                         ...subData_a,
-                        favourite: false
+                        favourite: 0
                     }
 
                     if (subData.primaryImageSmall !== "") {
@@ -59,9 +59,9 @@ const DataApi = (url) => {
 
         getArt();
 
-    }, [url])
+    }, [])
 
-    return [isLoading, artData]
+    return [isLoading, artData, setArtData]
 
 }
 

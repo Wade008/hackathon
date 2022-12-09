@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 //image
 import searchIcon from "./styled/images/search-icon.svg";
 //styles
@@ -46,6 +46,7 @@ const SearchBar = (props) => {
 
             <ArtThumbnail
               key={item.objectID}
+              id={item.objectID}
               title={item.title}
               artist={item.artistDisplayName}
               src={item.primaryImageSmall}

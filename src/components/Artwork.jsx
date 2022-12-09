@@ -1,10 +1,10 @@
-// import styled from "styled-components"
+
 import { Title, Para } from "./styled/Text";
-import Spinner from "./Spinner";
+import { Spinner } from "./styled/Spinner.styles";
 import ArtThumbnailList from "./ArtThumbnailList"
 
 function Artwork(props) {
-  const { isLoading, data } = props;
+  const { isLoading, data, handleFavourites } = props;
 
   return (
     <>
@@ -16,7 +16,10 @@ function Artwork(props) {
       ) : (
         <div>
           <Title>An assortment of European Paintings</Title>
-          <ArtThumbnailList artworkList={data} />
+          <ArtThumbnailList
+            artworkList={data}
+            handleFavourites={handleFavourites}
+          />
 
         </div>
       )}

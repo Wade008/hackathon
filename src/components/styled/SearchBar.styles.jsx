@@ -14,7 +14,7 @@ export const Content = styled.div`
   max-width: 1280;
   width: 100%;
   height: 55px;
-  background: lightBlue;
+  background: #bcc7ca;
   margin: 20px;
   border-radius: 40px;
   color: white;

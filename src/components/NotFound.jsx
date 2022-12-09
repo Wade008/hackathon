@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrapper } from "./NotFound.styles";
+import { Wrapper } from "./styled/NotFound.styles";
 
 const NotFound = () => 
 <Wrapper>

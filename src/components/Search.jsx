@@ -1,4 +1,5 @@
 
+
 import SearchBar from "./SearchBar"
 import { Title } from "./styled/Text"
 
