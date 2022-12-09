@@ -14,8 +14,8 @@ import Search from "./components/Search"
 import Favourite from "./components/Favourite"
 import DataApi from "./components/utils/dataApi"
 import Footer from "./components/Footer"
-import NotFound from "./components/NotFound/NotFound"
-import { unstable_batchedUpdates } from "react-dom"
+import NotFound from "./components/NotFound"
+
 
 function App() {
 
@@ -28,35 +28,32 @@ function App() {
 
     const handleFavourites = (e) => {
 
-        
         const artObject = data.find(item => {
-            return item.objectID == e.target.value
+            return item.objectID === +e.target.value
         })
 
-        console.log(artObject)
 
-        // const index = favourites.findIndex(favourite => {
-        //     return favourite.objectID === artObject.objectID
-        // })
+        const found = favourites.find(favourite => {
+            return favourite.objectID === artObject.objectID
+        })
 
-        // if (!index) {
-        //    setFavourites((prev)=>{
-        //     return [...prev, artObject]
-        //    })
-        // } else {
-        //     const update = favourites.splice(index,1)
+        if (found == null) {
+            setFavourites([artObject, ...favourites]
+            )
+        } else {
+            const updatedFavourites = favourites.filter((favourite) => {
+                return favourite.objectID !== artObject.objectID
+            })
 
-        //     setFavourites(update)
+            setFavourites(updatedFavourites)
+        }
 
-        // }
-
-        // console.log(favourites)
     }
-
+    // console.log(favourites)
 
     const router = createBrowserRouter(
         createRoutesFromElements(
-            <Route path="/" element={<MainPage />}>
+            <Route path="/" element={<MainPage />} errorElement={<NotFound />}>
                 <Route path="/" element={<Home />} />
                 <Route path="artwork" element={<Artwork
                     isLoading={isLoading}
@@ -65,7 +62,7 @@ function App() {
                 />}
                 />
                 <Route path="search" element={<Search data={data} />} />
-                <Route path="favourites" element={<Favourite />} />
+                <Route path="favourites" element={<Favourite favList={favourites}/>} />
             </Route>
         )
 

@@ -1,13 +1,17 @@
 
 
 import { Title } from "./styled/Text"
+import ArtThumbnailList from "./ArtThumbnailList"
 
+function Favourite(props) {
 
-function Favourite(Props) {
+    const favList = props.favList
 
     return (
         <div>
-            <Title>Favourites page</Title>
+            <Title>My Favourite Art</Title>
+            <ArtThumbnailList artworkList={favList} />
+
         </div>)
 }
 

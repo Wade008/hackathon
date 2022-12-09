@@ -1,4 +1,4 @@
-// import styled from "styled-components"
+
 import { Title, Para } from "./styled/Text";
 import Spinner from "./Spinner";
 import ArtThumbnailList from "./ArtThumbnailList"
