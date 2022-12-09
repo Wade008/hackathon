@@ -17,4 +17,17 @@ export const Content = styled.div`
   margin: 20px;
   text-align: end;
   opacity: 0.4;
+  font-family: "Libre Baskerville", serif; 
+
+  a:link {
+    color: grey;
+    font-family: "Libre Baskerville", serif; 
+  }
+
+  a:visited {
+    color: grey;
+  }
+  a:hover {
+    color: #d32626;
+  }
 `;

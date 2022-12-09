@@ -2,11 +2,13 @@ import { TextCenter } from "./styled/TextCenter";
 import HomePagePic from "./styled/images/warwickCastle.jpg";
 import { TextBottom } from "./styled/BottomRightText";
 import { Title } from "./styled/Text";
+import { HomePic } from "./styled/HomePic.styles";
 
 function Home() {
   return (
     <div style={{ position: "relative" }}>
       <Title>About</Title>
+      <HomePic>
       <TextCenter>
         Bringing the art collection from New York to your screen!{" "}
         <a href="https://www.metmuseum.org/" target="_blank" rel="noreferrer">
@@ -31,8 +33,8 @@ function Home() {
       <img
         src={HomePagePic}
         alt="home-page-pic"
-        style={{ width: "100%", height: "auto", opacity: "0.3" }}
       />
+      </HomePic>
     </div>
   );
 }
