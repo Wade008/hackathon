@@ -13,13 +13,15 @@ function ArtThumbnail(props) {
 
 
     return (
-        <Wrapper> {/* Add onClick handler to navigate to details page */}
+        <Wrapper opacity={props.favourite}> {/* Add onClick handler to navigate to details page */}
 
             <button
+                
                 className="btn-fav"
                 alt="Add to favourites"
                 title="Add to favourites"
                 value={props.id}
+                
                 onClick={handleClick}
             >
                 &hearts;
@@ -30,7 +32,7 @@ function ArtThumbnail(props) {
             <div className="artwork-snippet">
                 <h3 className="artwork-title">{props.title}</h3>
                 <div className="artwork-artist">{props.artist}</div>
-
+    
             </div>
         </Wrapper>
     )

@@ -17,9 +17,9 @@ import NotFound from "./components/NotFound"
 import Header from "./components/Header";
 
 function App() {
-  const [isLoading, data] = DataApi(
-    "/public/collection/v1/search?hasImages=true&departmentId=11&q=paint"
-  );
+    const [isLoading, data] = DataApi(
+        "/public/collection/v1/search?hasImages=true&departmentId=11&q=paint"
+    );
 
     // console.log(data)
 
@@ -37,9 +37,14 @@ function App() {
         })
 
         if (found == null) {
+            // set favourite to true
+            artObject["favourite"] = 1;
+
             setFavourites([artObject, ...favourites]
             )
         } else {
+            // set favourite to true
+            artObject["favourite"] = 0;
             const updatedFavourites = favourites.filter((favourite) => {
                 return favourite.objectID !== artObject.objectID
             })
@@ -48,7 +53,7 @@ function App() {
         }
 
     }
-    // console.log(favourites)
+    console.log(favourites)
 
     const router = createBrowserRouter(
         createRoutesFromElements(
@@ -61,28 +66,28 @@ function App() {
                 />}
                 />
                 <Route path="search" element={<Search data={data} />} />
-                <Route path="favourites" element={<Favourite favList={favourites}  handleFavourites={handleFavourites}/>} />
+                <Route path="favourites" element={<Favourite favList={favourites} handleFavourites={handleFavourites} />} />
             </Route>
         )
 
     )
 
-  return (
-    <div className="App">
-      <RouterProvider router={router} />
-    </div>
-  );
+    return (
+        <div className="App">
+            <RouterProvider router={router} />
+        </div>
+    );
 }
 
 function MainPage() {
-  return (
-    <>
-      <Header />
-      <NavBar />
-      <Outlet />
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <NavBar />
+            <Outlet />
+            <Footer />
+        </>
+    );
 }
 
 export default App;

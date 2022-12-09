@@ -36,31 +36,29 @@ transition: all 0.2s ease-out;
 display: flex;
 flex-direction: column;
 align-items: center;
+
 .btn-fav {
     position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
+    top: 1.2rem;
+    right: 2.0rem;
     font-size: 1.5rem;
     transition: all 0.2s ease-in-out;
     font-family: 'Inter', sans-serif;
-    color: #fff;
+    color: #7699F0;
     background-color: transparent;
     text-decoration: none;
     border: none;
-    opacity: 0;
+    opacity: ${props => props.opacity === 1 ? 1 : 0} ;
     :hover {
         color: #7699F0;
         cursor: pointer;
     }
 }
+
 .artwork-snippet {
     width: 100%;
 }
 `
-
-
-
-
 
 
 export const ThumbnailImage = styled.img`

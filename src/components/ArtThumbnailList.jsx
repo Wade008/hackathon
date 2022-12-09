@@ -17,6 +17,7 @@ function ArtThumbnailList(props) {
                             title={artwork.title}
                             artist={artwork.artistDisplayName}
                             src={artwork.primaryImageSmall}
+                            favourite={artwork.favourite}
                             handleFavourites={handleFavourites}
                         />
                     )

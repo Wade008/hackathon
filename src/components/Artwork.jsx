@@ -1,6 +1,6 @@
 
 import { Title, Para } from "./styled/Text";
-import Spinner from "./Spinner";
+import { Spinner } from "./styled/Spinner.styles";
 import ArtThumbnailList from "./ArtThumbnailList"
 
 function Artwork(props) {
@@ -16,7 +16,10 @@ function Artwork(props) {
       ) : (
         <div>
           <Title>An assortment of European Paintings</Title>
-          <ArtThumbnailList artworkList={data} handleFavourites={handleFavourites}/>
+          <ArtThumbnailList
+            artworkList={data}
+            handleFavourites={handleFavourites}
+          />
 
         </div>
       )}
