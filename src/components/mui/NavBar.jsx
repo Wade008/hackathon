@@ -41,6 +41,7 @@ function NavBar() {
                                             my: 2,
                                             color: "white",
                                             display: "block",
+                                            
                                         }}
                                     >
                                         {item.title}

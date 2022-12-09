@@ -1,4 +1,3 @@
-
 import {
     createBrowserRouter,
     createRoutesFromElements,
@@ -16,11 +15,27 @@ import DataApi from "./components/utils/dataApi"
 import Footer from "./components/Footer"
 import NotFound from "./components/NotFound"
 
+  createBrowserRouter,
+  createRoutesFromElements,
+  Outlet,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+
+import Home from "./components/Home";
+import NavBar from "./components/mui/NavBar";
+import Artwork from "./components/Artwork";
+import Search from "./components/Search";
+import Favourite from "./components/Favourite";
+import DataApi from "./components/utils/dataApi";
+import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
+import Header from "./components/Header";
 
 function App() {
-
-
-    const [isLoading, data] = DataApi("/public/collection/v1/search?hasImages=true&departmentId=11&q=paint")
+  const [isLoading, data] = DataApi(
+    "/public/collection/v1/search?hasImages=true&departmentId=11&q=paint"
+  );
 
     // console.log(data)
 
@@ -68,29 +83,22 @@ function App() {
 
     )
 
-    return (
-        <div className="App">
-
-            <RouterProvider router={router} />
-
-        </div>
-    )
+  return (
+    <div className="App">
+      <RouterProvider router={router} />
+    </div>
+  );
 }
-
 
 function MainPage() {
-    return (
-        <>
-            <NavBar />
-            <Outlet />
-            <Footer />
-        </>
-    )
+  return (
+    <>
+      <Header />
+      <NavBar />
+      <Outlet />
+      <Footer />
+    </>
+  );
 }
 
-
-
-
-
-
-export default App
+export default App;
