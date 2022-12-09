@@ -9,7 +9,7 @@ const Footer = () => {
         <a
           href="https://metmuseum.github.io/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noreferrer"
         >
           MetMuseum
         </a>

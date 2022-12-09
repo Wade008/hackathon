@@ -9,25 +9,21 @@ function Home() {
       <Title>About</Title>
       <TextCenter>
         Bringing the art collection from New York to your screen!{" "}
-        <a
-          href="https://www.metmuseum.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://www.metmuseum.org/" target="_blank" rel="noreferrer">
           The Metropolitan Museum of Art
-        </a>
-        {" "}presents over 5000 years of art from all around the globe.
+        </a>{" "}
+        presents over 5000 years of art from all around the globe.
         <br />
         On this website you can see available artwork, search for favorite
         artists or explore new ones, add an artwork to your personal favorite
         page
       </TextCenter>
       <TextBottom>
-        Background picture: {" "}
+        Background picture:{" "}
         <a
           href="https://www.metmuseum.org/art/collection/search/438106"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noreferrer"
         >
           Warwick Castle{" "}
         </a>
