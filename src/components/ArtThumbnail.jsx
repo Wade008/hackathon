@@ -1,13 +1,8 @@
-
-
 import { Wrapper, ThumbnailImage } from "./styled/Artwork.styles"
-
-
+import { useNavigate } from "react-router-dom"
 
 function ArtThumbnail(props) {
-
     const artwork = props
-
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -15,9 +10,12 @@ function ArtThumbnail(props) {
         console.log(e.target.value)
     }
 
+    const navigate = useNavigate()
 
     return (
-        <Wrapper> {/* Add onClick handler to navigate to details page */}
+        <Wrapper onClick={() => navigate(
+            // Pass the component props to the route
+            `/artwork/${artwork.id}`, { state: artwork })}>
 
             <button
                 className="btn-fav"

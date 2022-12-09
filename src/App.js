@@ -10,6 +10,7 @@ import { useState } from "react"
 import Home from "./components/Home"
 import NavBar from "./components/mui/NavBar"
 import Artwork from "./components/Artwork"
+import ArtItem from "./components/ArtItem"
 import Search from "./components/Search"
 import Favourite from "./components/Favourite"
 import DataApi from "./components/utils/dataApi"
@@ -35,6 +36,7 @@ function App() {
                     data={data}
                 />}
                 />
+                <Route path="artwork/:id" element={<ArtItem />} />
                 <Route path="search" element={<Search data={data} />} />
                 <Route path="favourites" element={<Favourite />} />
             </Route>

@@ -3,8 +3,8 @@ import ArtThumbnail from "./ArtThumbnail"
 import { ArtworkList } from "./styled/Artwork.styles"
 
 function ArtThumbnailList(props) {
-  
-    const {artworkList} = props
+
+    const { artworkList } = props
 
     return (
         <>
