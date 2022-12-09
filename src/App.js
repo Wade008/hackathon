@@ -13,7 +13,7 @@ import Search from "./components/Search";
 import Favourite from "./components/Favourite";
 import DataApi from "./components/utils/dataApi";
 import Footer from "./components/Footer";
-import NotFound from "./components/NotFound/NotFound";
+import NotFound from "./components/NotFound";
 import Header from "./components/Header";
 
 function App() {
