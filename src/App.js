@@ -14,22 +14,6 @@ import Favourite from "./components/Favourite"
 import DataApi from "./components/utils/dataApi"
 import Footer from "./components/Footer"
 import NotFound from "./components/NotFound"
-
-  createBrowserRouter,
-  createRoutesFromElements,
-  Outlet,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
-
-import Home from "./components/Home";
-import NavBar from "./components/mui/NavBar";
-import Artwork from "./components/Artwork";
-import Search from "./components/Search";
-import Favourite from "./components/Favourite";
-import DataApi from "./components/utils/dataApi";
-import Footer from "./components/Footer";
-import NotFound from "./components/NotFound";
 import Header from "./components/Header";
 
 function App() {
