@@ -6,7 +6,7 @@ function ArtThumbnail(props) {
 
     const handleClick = (e) => {
         // e.preventDefault()
-
+        e.stopPropagation()
         props.handleFavourites(e)
     }
 
@@ -14,8 +14,8 @@ function ArtThumbnail(props) {
 
     return (
         <Wrapper opacity={props.favourite} onClick={() => navigate(
-            // Pass the component props to the route
-            `/artwork/${artwork.id}`, { state: artwork })}>
+            // Pass the artwork props to the route
+            `/artwork/${artwork.id}`, { state: JSON.stringify(artwork) })}>
 
             <button
                 

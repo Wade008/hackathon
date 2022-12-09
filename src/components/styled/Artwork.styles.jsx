@@ -60,11 +60,39 @@ align-items: center;
 }
 `
 
-
 export const ThumbnailImage = styled.img`
 background-color: #eee;
 width: 100%;
 transition: width 0.5s ease-out;
+`
+
+export const ArtworkDetails = styled.div`
+margin: 0 auto;
+padding: 2rem;
+padding-bottom: calc(2rem + 50px);
+max-width: 900px;
+
+h2 {
+    margin-top: 0;
+}
+
+#artwork-info {
+    display: flex;
+    width: 100%;
+
+    p {
+    padding-right: 1rem;
+    }
+}
+
+#artwork-info > div {
+    flex-basis: 50%;
+}
+`
+
+export const ArtworkFullImage = styled.img`
+max-width: 100%;
+margin: 0 auto;
 `
 
 
