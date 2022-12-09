@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useLocation } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
-import styled from "styled-components"
-import { Para } from "./styled/Text";
+import { Title, Para } from "./styled/Text";
 import { Spinner } from "./styled/Spinner.styles";
 import { ArtworkDetails, ArtworkFullImage } from "./styled/Artwork.styles"
 
@@ -21,10 +20,11 @@ const ArtItem = () => {
       .then(result => result.data)
       .then(json => {
         setDetails({ ...json })
-        setImgSrc(details.primaryImage)
+        const highRes = json.primaryImage
+        setImgSrc(highRes)
         setIsLoading(false)
       })
-  }, [artwork.id, details.primaryImage])
+  }, [artwork.id])
 
   return (
     <>
@@ -36,8 +36,8 @@ const ArtItem = () => {
           </div>
         ) : (
           <ArtworkDetails>
-            <h1>{artwork.title}, {details.objectDate}</h1>
-            <h2>{artwork.artist}</h2>
+            <Title>{artwork.title}, {details.objectDate}</Title>
+            <Para>{artwork.artist}</Para>
             <ArtworkFullImage
               src={imgSrc}
               alt={`${artwork.title} by ${artwork.artist}`}

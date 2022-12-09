@@ -44,13 +44,13 @@ align-items: center;
     font-size: 1.5rem;
     transition: all 0.2s ease-in-out;
     font-family: 'Inter', sans-serif;
-    color: #7699F0;
+    color: #d32626;
     background-color: transparent;
     text-decoration: none;
     border: none;
     opacity: ${props => props.opacity === 1 ? 1 : 0} ;
     :hover {
-        color: #7699F0;
+        color: #d32626;
         cursor: pointer;
     }
 }
@@ -72,8 +72,13 @@ padding: 2rem;
 padding-bottom: calc(2rem + 50px);
 max-width: 900px;
 
-h2 {
+h1 {
+    margin-bottom: 0;
+}
+
+.sc-hLBbgP {
     margin-top: 0;
+    padding-top: 0;
 }
 
 #artwork-info {
