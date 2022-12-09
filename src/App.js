@@ -61,7 +61,7 @@ function App() {
                 />}
                 />
                 <Route path="search" element={<Search data={data} />} />
-                <Route path="favourites" element={<Favourite favList={favourites}/>} />
+                <Route path="favourites" element={<Favourite favList={favourites}  handleFavourites={handleFavourites}/>} />
             </Route>
         )
 
