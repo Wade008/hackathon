@@ -6,7 +6,7 @@ import { Wrapper, ThumbnailImage } from "./styled/Artwork.styles"
 function ArtThumbnail(props) {
 
     const handleClick = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
 
         props.handleFavourites(e)
     }

@@ -5,13 +5,13 @@ import ArtThumbnailList from "./ArtThumbnailList"
 
 function Favourite(props) {
 
-    const { favList, handleFavourites } = props
+    const { data, handleFavourites } = props
 
     return (
         <div>
             <Title>My Favourite Art</Title>
             <ArtThumbnailList
-                artworkList={favList}
+                artworkList={data}
                 handleFavourites={handleFavourites}
             />
 

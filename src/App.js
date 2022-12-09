@@ -17,11 +17,7 @@ import NotFound from "./components/NotFound"
 import Header from "./components/Header";
 
 function App() {
-    const [isLoading, data] = DataApi(
-        "/public/collection/v1/search?hasImages=true&departmentId=11&q=paint"
-    );
-
-    // console.log(data)
+    const [isLoading, data, setArtData] = DataApi();
 
     const [favourites, setFavourites] = useState([])
 
@@ -40,20 +36,44 @@ function App() {
             // set favourite to true
             artObject["favourite"] = 1;
 
+            // update favourites
             setFavourites([artObject, ...favourites]
             )
+
+            // update data state
+            setArtData(current => current.map(object => {
+                if (object.objectID === artObject.objectID) {
+                    return { ...object, favourite: 1 }
+                }
+                
+                return object
+            }))
+
+            console.log(data)
+
+
+
         } else {
             // set favourite to true
             artObject["favourite"] = 0;
             const updatedFavourites = favourites.filter((favourite) => {
                 return favourite.objectID !== artObject.objectID
             })
-
+            // update favourites
             setFavourites(updatedFavourites)
+
+            // update data state
+            setArtData(current => current.map(object => {
+                if (object.objectID === artObject.objectID) {
+                    return { ...object, favourite: 0 }
+                }
+                return object
+            }))
+
         }
 
     }
-    console.log(favourites)
+    // console.log(favourites)
 
     const router = createBrowserRouter(
         createRoutesFromElements(
@@ -66,7 +86,10 @@ function App() {
                 />}
                 />
                 <Route path="search" element={<Search data={data} />} />
-                <Route path="favourites" element={<Favourite favList={favourites} handleFavourites={handleFavourites} />} />
+                <Route path="favourites" element={<Favourite
+                    data={favourites}
+                    handleFavourites={handleFavourites}
+                />} />
             </Route>
         )
 
