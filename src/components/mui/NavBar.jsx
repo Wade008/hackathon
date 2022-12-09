@@ -4,7 +4,9 @@ import { AppBar, Box, Button, Container, Toolbar, styled, alpha, InputBase } fro
 
 
 
-function NavBar() {
+function NavBar(props) {
+
+    
 
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',

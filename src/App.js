@@ -9,7 +9,6 @@ import { useState } from "react"
 import Home from "./components/Home"
 import NavBar from "./components/mui/NavBar"
 import Artwork from "./components/Artwork"
-
 import Favourite from "./components/Favourite"
 import DataApi from "./components/utils/dataApi"
 import Footer from "./components/Footer"
@@ -19,7 +18,7 @@ import Header from "./components/Header";
 function App() {
     const [isLoading, data] = DataApi();
     const [favourites, setFavourites] = useState([])
-   
+
 
     const handleFavourites = (e) => {
 
@@ -39,7 +38,7 @@ function App() {
             // update favourites
             setFavourites([artObject, ...favourites]
             )
-        
+
 
 
         } else {
@@ -51,7 +50,7 @@ function App() {
             // update favourites
             setFavourites(updatedFavourites)
 
-       
+
 
         }
     }
@@ -59,13 +58,16 @@ function App() {
 
     const router = createBrowserRouter(
         createRoutesFromElements(
-            <Route path="/" element={<MainPage />} errorElement={<NotFound />}>
+            <Route path="/" element={<MainPage
+                data={data}
+                handleFavourites={handleFavourites}
+            />} errorElement={<NotFound />}>
                 <Route path="/" element={<Home />} />
                 <Route path="artwork" element={<Artwork
                     isLoading={isLoading}
                     data={data}
                     handleFavourites={handleFavourites}
-               
+
                 />}
                 />
                 {/* <Route path="search" element={<Search 
@@ -75,7 +77,7 @@ function App() {
                 <Route path="favourites" element={<Favourite
                     data={favourites}
                     handleFavourites={handleFavourites}
-                   
+
                 />} />
             </Route>
         )
@@ -89,11 +91,18 @@ function App() {
     );
 }
 
-function MainPage() {
+function MainPage(props) {
+
+    const { data, handleFavourites } = props
+
+
     return (
         <>
             <Header />
-            <NavBar />
+            <NavBar
+                data={data}
+                handleFavourites={handleFavourites}
+            />
             <Outlet />
             <Footer />
         </>
