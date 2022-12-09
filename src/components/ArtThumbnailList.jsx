@@ -1,4 +1,4 @@
-import styled from "styled-components"
+
 import ArtThumbnail from "./ArtThumbnail"
 import { ArtworkList } from "./styled/Artwork.styles"
 

@@ -1,5 +1,4 @@
 
-import { useState } from "react"
 import { Wrapper, ThumbnailImage } from "./styled/Artwork.styles"
 
 

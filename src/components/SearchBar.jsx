@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 //image
 import searchIcon from "./styled/images/search-icon.svg";
 //styles
