@@ -14,7 +14,7 @@ import Favourite from "./components/Favourite";
 import DataApi from "./components/utils/dataApi";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound/NotFound";
-import Header from "./components/Header"
+import Header from "./components/Header";
 
 function App() {
   const [isLoading, data] = DataApi(
@@ -33,7 +33,7 @@ function App() {
         />
         <Route path="search" element={<Search data={data} />} />
         <Route path="favourites" element={<Favourite />} />
-        <Route path='/*' element={<NotFound />} />
+        <Route path="/*" element={<NotFound />} />
       </Route>
     )
   );
@@ -48,7 +48,7 @@ function App() {
 function MainPage() {
   return (
     <>
-    <Header />
+      <Header />
       <NavBar />
       <Outlet />
       <Footer />

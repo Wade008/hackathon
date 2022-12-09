@@ -9,7 +9,6 @@ align-items: center;
 padding: 0 2rem 2rem;
 `
 
-
 export const Wrapper = styled.div`
 position: relative;
 margin: 1rem 2rem;
