@@ -9,7 +9,7 @@ import { useState } from "react"
 import Home from "./components/Home"
 import NavBar from "./components/mui/NavBar"
 import Artwork from "./components/Artwork"
-import Search from "./components/Search"
+
 import Favourite from "./components/Favourite"
 import DataApi from "./components/utils/dataApi"
 import Footer from "./components/Footer"
@@ -17,9 +17,9 @@ import NotFound from "./components/NotFound"
 import Header from "./components/Header";
 
 function App() {
-    const [isLoading, data, setArtData] = DataApi();
-
+    const [isLoading, data] = DataApi();
     const [favourites, setFavourites] = useState([])
+   
 
     const handleFavourites = (e) => {
 
@@ -39,18 +39,7 @@ function App() {
             // update favourites
             setFavourites([artObject, ...favourites]
             )
-
-            // update data state
-            setArtData(current => current.map(object => {
-                if (object.objectID === artObject.objectID) {
-                    return { ...object, favourite: 1 }
-                }
-                
-                return object
-            }))
-
-            console.log(data)
-
+        
 
 
         } else {
@@ -62,18 +51,11 @@ function App() {
             // update favourites
             setFavourites(updatedFavourites)
 
-            // update data state
-            setArtData(current => current.map(object => {
-                if (object.objectID === artObject.objectID) {
-                    return { ...object, favourite: 0 }
-                }
-                return object
-            }))
+       
 
         }
-
     }
-    // console.log(favourites)
+
 
     const router = createBrowserRouter(
         createRoutesFromElements(
@@ -83,12 +65,17 @@ function App() {
                     isLoading={isLoading}
                     data={data}
                     handleFavourites={handleFavourites}
+               
                 />}
                 />
-                <Route path="search" element={<Search data={data} />} />
+                {/* <Route path="search" element={<Search 
+                data={data} 
+                handleFavourites={handleFavourites} */}
+                {/* />} /> */}
                 <Route path="favourites" element={<Favourite
                     data={favourites}
                     handleFavourites={handleFavourites}
+                   
                 />} />
             </Route>
         )

@@ -28,7 +28,7 @@ h3 {
     transform: scale(1.05);
     cursor: pointer; // Mock hyperlink when hovering over artwork
     background-color: #f0f0f0;
-    .btn-fav {
+    .btnFav {
         opacity: 1;
     }
 }
@@ -37,7 +37,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 
-.btn-fav {
+.btnFav {
     position: absolute;
     top: 1.2rem;
     right: 2.0rem;
@@ -48,7 +48,7 @@ align-items: center;
     background-color: transparent;
     text-decoration: none;
     border: none;
-    opacity: ${props => props.opacity === 1 ? 1 : 0} ;
+    opacity: 0 ; 
     :hover {
         color: #7699F0;
         cursor: pointer;

@@ -9,7 +9,7 @@ import { ArtworkList } from "./styled/Artwork.styles"
 
 const SearchBar = (props) => {
 
-  const { data } = props
+  const { data, handleFavourites } = props
 
   const [userInput, setUserInput] = useState("");
 
@@ -50,6 +50,7 @@ const SearchBar = (props) => {
               title={item.title}
               artist={item.artistDisplayName}
               src={item.primaryImageSmall}
+              handleFavourites={handleFavourites}
             />
 
           );

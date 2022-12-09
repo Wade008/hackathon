@@ -13,6 +13,8 @@ function Favourite(props) {
             <ArtThumbnailList
                 artworkList={data}
                 handleFavourites={handleFavourites}
+           
+                
             />
 
         </div>)

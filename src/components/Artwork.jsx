@@ -19,6 +19,8 @@ function Artwork(props) {
           <ArtThumbnailList
             artworkList={data}
             handleFavourites={handleFavourites}
+       
+         
           />
 
         </div>
