@@ -32,6 +32,10 @@ const DataApi = () => {
                     //destructure to only access the relevant fields
                     const subData = (({ objectID, primaryImageSmall, title, artistDisplayName }) => ({ objectID, primaryImageSmall, title, artistDisplayName }))(artData);
 
+                    // const subData = {
+                    //     ...subData_a,
+                    //     favourite: 0
+                    // }
 
                     if (subData.primaryImageSmall !== "") {
                         dataArr.unshift(subData)
