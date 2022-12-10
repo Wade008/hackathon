@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TextCenter = styled.text`
+export const TextCenter = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;

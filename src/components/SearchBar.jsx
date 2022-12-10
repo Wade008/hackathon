@@ -1,63 +1,64 @@
 
-import React, { useState } from "react";
-//image
-import searchIcon from "./styled/images/search-icon.svg";
-//styles
-import { SearchWrapper, Content } from "./styled/SearchBar.styles";
-import ArtThumbnail from "./ArtThumbnail";
-import { ArtworkList } from "./styled/Artwork.styles"
+// import React, { useState } from "react";
+// //image
+// import searchIcon from "./styled/images/search-icon.svg";
+// //styles
+// import { SearchWrapper, Content } from "./styled/SearchBar.styles";
+// import ArtThumbnail from "./ArtThumbnail";
+// import { ArtworkList } from "./styled/Artwork.styles"
 
-const SearchBar = (props) => {
+// const SearchBar = (props) => {
 
-  const { data, handleFavourites } = props
+//   const { data, handleFavourites } = props
 
-  const [userInput, setUserInput] = useState("");
+//   const [userInput, setUserInput] = useState("");
 
-  const filterArt = (e) => {
-    let currValue = e.target.value
+//   const filterArt = (e) => {
+//     let currValue = e.target.value
 
-    setUserInput(currValue)
+//     setUserInput(currValue)
 
-  }
+//   }
 
-  const filteredArt = data.filter((art) => {
-    let searchTerm = userInput.toLowerCase()
-    return art.title.toLowerCase().includes(searchTerm) || art.artistDisplayName.toLowerCase().includes(searchTerm)
-  })
+//   const filteredArt = data.filter((art) => {
+//     let searchTerm = userInput.toLowerCase()
+//     return art.title.toLowerCase().includes(searchTerm) || art.artistDisplayName.toLowerCase().includes(searchTerm)
+//   })
 
 
-  return (
-    <>
-      <SearchWrapper>
-        <Content>
-          <img src={searchIcon} alt="search-icon" />
-          <input
-            type="text"
-            placeholder="Search Artwork"
-            onChange={filterArt}
-            value={userInput}
+//   return (
+//     <>
+//       <SearchWrapper>
+//         <Content>
+//           <img src={searchIcon} alt="search-icon" />
+//           <input
+//             type="text"
+//             placeholder="Search Artwork"
+//             onChange={filterArt}
+//             value={userInput}
 
-          />
-        </Content>
-      </SearchWrapper>
-      <ArtworkList id="artworkList">
-        {userInput ? filteredArt.map((item) => {
-          return (
+//           />
+//         </Content>
+//       </SearchWrapper>
 
-            <ArtThumbnail
-              key={item.objectID}
-              id={item.objectID}
-              title={item.title}
-              artist={item.artistDisplayName}
-              src={item.primaryImageSmall}
-              handleFavourites={handleFavourites}
-            />
+//       <ArtworkList id="artworkList">
+//         {userInput ? filteredArt.map((item) => {
+//           return (
 
-          );
-        }) : ""}
-      </ArtworkList>
-    </>
-  );
-};
+//             <ArtThumbnail
+//               key={item.objectID}
+//               id={item.objectID}
+//               title={item.title}
+//               artist={item.artistDisplayName}
+//               src={item.primaryImageSmall}
+//               handleFavourites={handleFavourites}
+//             />
 
-export default SearchBar;
+//           );
+//         }) : ""}
+//       </ArtworkList>
+//     </>
+//   );
+// };
+
+// export default SearchBar;

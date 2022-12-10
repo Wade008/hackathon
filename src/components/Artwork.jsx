@@ -4,7 +4,7 @@ import { Spinner } from "./styled/Spinner.styles";
 import ArtThumbnailList from "./ArtThumbnailList"
 
 function Artwork(props) {
-  const { isLoading, data, handleFavourites } = props;
+  const { isLoading, data, handleFavourites, filteredArt } = props;
 
   return (
     <>
@@ -19,6 +19,7 @@ function Artwork(props) {
           <ArtThumbnailList
             artworkList={data}
             handleFavourites={handleFavourites}
+            filteredArt={filteredArt}
        
          
           />

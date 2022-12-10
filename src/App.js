@@ -18,7 +18,20 @@ import Header from "./components/Header";
 function App() {
     const [isLoading, data] = DataApi();
     const [favourites, setFavourites] = useState([])
+    const [userInput, setUserInput] = useState("");
 
+    const filterArt = (e) => {
+        let currValue = e.target.value
+
+        setUserInput(currValue)
+        console.log(userInput)
+
+    }
+
+    const filteredArt = data.filter((art) => {
+        let searchTerm = userInput.toLowerCase()
+        return art.title.toLowerCase().includes(searchTerm) || art.artistDisplayName.toLowerCase().includes(searchTerm)
+    })
 
     const handleFavourites = (e) => {
 
@@ -61,19 +74,19 @@ function App() {
             <Route path="/" element={<MainPage
                 data={data}
                 handleFavourites={handleFavourites}
+                filterArt={filterArt}
+                userInput={userInput}
             />} errorElement={<NotFound />}>
                 <Route path="/" element={<Home />} />
                 <Route path="artwork" element={<Artwork
                     isLoading={isLoading}
                     data={data}
                     handleFavourites={handleFavourites}
+                    filteredArt={filteredArt}
 
                 />}
                 />
-                {/* <Route path="search" element={<Search 
-                data={data} 
-                handleFavourites={handleFavourites} */}
-                {/* />} /> */}
+
                 <Route path="favourites" element={<Favourite
                     data={favourites}
                     handleFavourites={handleFavourites}
@@ -93,7 +106,7 @@ function App() {
 
 function MainPage(props) {
 
-    const { data, handleFavourites } = props
+    const { data, handleFavourites, filterArt, userInput } = props
 
 
     return (
@@ -102,6 +115,8 @@ function MainPage(props) {
             <NavBar
                 data={data}
                 handleFavourites={handleFavourites}
+                filterArt={filterArt}
+                userInput={userInput}
             />
             <Outlet />
             <Footer />
