@@ -69,8 +69,13 @@ transition: width 0.5s ease-out;
 export const ArtworkDetails = styled.div`
 margin: 0 auto;
 padding: 2rem;
+padding-top: 0;
 padding-bottom: calc(2rem + 50px);
-max-width: 900px;
+max-width: 800px;
+
+@media screen and (min-width: 1200px) {
+    max-width: 1000px;
+}
 
 h1 {
     margin-bottom: 0;
@@ -93,10 +98,18 @@ h1 {
 #artwork-info > div {
     flex-basis: 50%;
 }
+
+h1, .sc-hLBbgP, #artwork-info {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 `
 
 export const ArtworkFullImage = styled.img`
+display: block;
 max-width: 100%;
+max-height: 90vh;
 margin: 0 auto;
 `
 
