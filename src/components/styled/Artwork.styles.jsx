@@ -71,10 +71,10 @@ margin: 0 auto;
 padding: 2rem;
 padding-top: 0;
 padding-bottom: calc(2rem + 50px);
-max-width: 800px;
+max-width: 700px;
 
 @media screen and (min-width: 1200px) {
-    max-width: 1000px;
+    max-width: 900px;
 }
 
 h1 {
@@ -108,12 +108,6 @@ h1, .sc-hLBbgP, #artwork-info {
 
 export const ArtworkFullImage = styled.img`
 display: block;
-max-width: 100%;
-max-height: 90vh;
+width: 100%;
 margin: 0 auto;
 `
-
-
-
-
-

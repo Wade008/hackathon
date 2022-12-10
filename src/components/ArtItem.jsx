@@ -15,14 +15,24 @@ const ArtItem = () => {
   const image = useRef()
 
   useEffect(() => {
+    async function loadHighresImage(url) {
+      const highRes = new Image();
+      highRes.onload = () => {
+        // console.log("High res image loaded!")
+        setImgSrc(url)
+        // console.log(`Image src set to:${url}`)
+      }
+      highRes.src = url;
+      // console.log("Fetching high-res image...")
+    }
+
     axios
       .get(`/public/collection/v1/objects/${artwork.id}`)
       .then(result => result.data)
       .then(json => {
         setDetails({ ...json })
-        const highRes = json.primaryImage
-        setImgSrc(highRes)
         setIsLoading(false)
+        loadHighresImage(json.primaryImage)
       })
   }, [artwork.id])
 
