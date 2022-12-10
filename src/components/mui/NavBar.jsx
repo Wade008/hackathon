@@ -63,7 +63,7 @@ function NavBar(props) {
                         >
                         
                                 <InputBase
-                                    style={{backgroundColor: "#d7c3db"}}
+                                    style={{backgroundColor: "#d9e2e2"}}
                                     placeholder="Search..."
                                     // inputProps={{ 'aria-label': 'search' }}
                                     onChange={handleChange}
