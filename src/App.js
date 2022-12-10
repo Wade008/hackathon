@@ -24,7 +24,6 @@ function App() {
         let currValue = e.target.value
 
         setUserInput(currValue)
-        console.log(userInput)
 
     }
 
