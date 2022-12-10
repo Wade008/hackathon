@@ -10,7 +10,7 @@ const ArtItem = () => {
   const artwork = JSON.parse(useLocation().state)
   const [details, setDetails] = useState(artwork)
   const [imgSrc, setImgSrc] = useState(artwork.src)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState({ data: true, image: true })
 
   const image = useRef()
 
@@ -21,6 +21,15 @@ const ArtItem = () => {
         // console.log("High res image loaded!")
         setImgSrc(url)
         // console.log(`Image src set to:${url}`)
+        setIsLoading(prev => {
+          return { ...prev, image: false }
+        })
+      }
+      highRes.onerror = () => {
+        console.error("High resolution image failed to load. Try again later.")
+        setIsLoading(prev => {
+          return { ...prev, image: false }
+        })
       }
       highRes.src = url;
       // console.log("Fetching high-res image...")
@@ -31,7 +40,9 @@ const ArtItem = () => {
       .then(result => result.data)
       .then(json => {
         setDetails({ ...json })
-        setIsLoading(false)
+        setIsLoading(prev => {
+          return { ...prev, data: false }
+        })
         loadHighresImage(json.primaryImage)
       })
   }, [artwork.id])
@@ -39,7 +50,7 @@ const ArtItem = () => {
   return (
     <>
       {
-        isLoading ? (
+        isLoading.data ? (
           <div>
             <Para>Loading...</Para>
             <Spinner />
@@ -48,6 +59,13 @@ const ArtItem = () => {
           <ArtworkDetails>
             <Title>{artwork.title}, {details.objectDate}</Title>
             <Para>{artwork.artist}</Para>
+            {
+              isLoading.image ? (
+                <div id="loading-highres" className>
+                  <Spinner className="spinner" /><p>Loading high-res artwork...</p>
+                </div>
+              ) : (null)
+            }
             <ArtworkFullImage
               src={imgSrc}
               alt={`${artwork.title} by ${artwork.artist}`}

@@ -104,6 +104,32 @@ h1, .sc-hLBbgP, #artwork-info {
     margin-left: auto;
     margin-right: auto;
 }
+
+#loading-highres {
+    position: absolute;
+    padding: 0.25rem 1rem;
+    background-color: #00000055;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+
+    .spinner {
+        border-color: transparent;
+        border-top-color: #fff;
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border-width: 2.5px;
+        margin: 0;
+        margin-right: .5rem;
+    }
+
+    p {
+        color: #fff;
+        display: inline-block;
+        font-size: 1rem;
+    }
+}
 `
 
 export const ArtworkFullImage = styled.img`
