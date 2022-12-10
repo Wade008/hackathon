@@ -15,8 +15,8 @@ export const Content = styled.div`
   transform: translate(-50%, -50%);
   font-size: 40px;
   text-shadow: 0 1px 1px #00000074; 
-  @media screen and (max-width: 768px) {
-    font-size: 30px;
+  @media screen and (max-width: 900px) {
+    font-size: 25px;
   }
 
 `;

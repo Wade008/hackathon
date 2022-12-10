@@ -10,7 +10,6 @@ import Home from "./components/Home"
 import NavBar from "./components/mui/NavBar"
 import Artwork from "./components/Artwork"
 import ArtItem from "./components/ArtItem"
-import Search from "./components/Search"
 import Favourite from "./components/Favourite"
 import DataApi from "./components/utils/dataApi"
 import Footer from "./components/Footer"
@@ -18,9 +17,21 @@ import NotFound from "./components/NotFound"
 import Header from "./components/Header";
 
 function App() {
-    const [isLoading, data, setArtData] = DataApi();
-
+    const [isLoading, data] = DataApi();
     const [favourites, setFavourites] = useState([])
+    const [userInput, setUserInput] = useState("");
+
+    const filterArt = (e) => {
+        let currValue = e.target.value
+
+        setUserInput(currValue)
+
+    }
+
+    const filteredArt = data.filter((art) => {
+        let searchTerm = userInput.toLowerCase()
+        return art.title.toLowerCase().includes(searchTerm) || art.artistDisplayName.toLowerCase().includes(searchTerm)
+    })
 
     const handleFavourites = (e) => {
 
@@ -41,17 +52,6 @@ function App() {
             setFavourites([artObject, ...favourites]
             )
 
-            // update data state
-            setArtData(current => current.map(object => {
-                if (object.objectID === artObject.objectID) {
-                    return { ...object, favourite: 1 }
-                }
-                
-                return object
-            }))
-
-            console.log(data)
-
 
 
         } else {
@@ -63,34 +63,34 @@ function App() {
             // update favourites
             setFavourites(updatedFavourites)
 
-            // update data state
-            setArtData(current => current.map(object => {
-                if (object.objectID === artObject.objectID) {
-                    return { ...object, favourite: 0 }
-                }
-                return object
-            }))
+
 
         }
-
     }
-    // console.log(favourites)
+
 
     const router = createBrowserRouter(
         createRoutesFromElements(
-            <Route path="/" element={<MainPage />} errorElement={<NotFound />}>
+            <Route path="/" element={<MainPage
+                data={data}
+                handleFavourites={handleFavourites}
+                filterArt={filterArt}
+                userInput={userInput}
+            />} errorElement={<NotFound />}>
                 <Route path="/" element={<Home />} />
                 <Route path="artwork" element={<Artwork
                     isLoading={isLoading}
                     data={data}
                     handleFavourites={handleFavourites}
+                    filteredArt={filteredArt}
+
                 />}
                 />
                 <Route path="artwork/:id" element={<ArtItem />} />
-                <Route path="search" element={<Search data={data} />} />
                 <Route path="favourites" element={<Favourite
                     data={favourites}
                     handleFavourites={handleFavourites}
+
                 />} />
             </Route>
         )
@@ -104,11 +104,20 @@ function App() {
     );
 }
 
-function MainPage() {
+function MainPage(props) {
+
+    const { data, handleFavourites, filterArt, userInput } = props
+
+
     return (
         <>
             <Header />
-            <NavBar />
+            <NavBar
+                data={data}
+                handleFavourites={handleFavourites}
+                filterArt={filterArt}
+                userInput={userInput}
+            />
             <Outlet />
             <Footer />
         </>

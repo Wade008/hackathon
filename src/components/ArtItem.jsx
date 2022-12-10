@@ -61,7 +61,7 @@ const ArtItem = () => {
             <Para>{artwork.artist}</Para>
             {
               isLoading.image ? (
-                <div id="loading-highres" className>
+                <div id="loading-highres">
                   <Spinner className="spinner" /><p>Loading high-res artwork...</p>
                 </div>
               ) : (null)

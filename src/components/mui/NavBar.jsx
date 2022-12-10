@@ -1,8 +1,18 @@
+
 import { Link } from "react-router-dom";
-import { AppBar, Box, Button, Container, Toolbar } from "@mui/material"
+import { AppBar, Box, Button, Container, Toolbar, InputBase } from "@mui/material"
+
+function NavBar(props) {
 
 
-function NavBar() {
+    const { filterArt, userInput } = props
+
+    const handleChange =(e) =>{
+
+        filterArt(e)
+
+    }
+  
 
     const NavItems = [
         {
@@ -14,10 +24,6 @@ function NavBar() {
             LinkTo: "artwork",
         },
         {
-            title: "Search",
-            LinkTo: "search",
-        },
-        {
             title: "Favourites",
             LinkTo: "favourites",
         },
@@ -25,36 +31,54 @@ function NavBar() {
 
 
     return (
-        <AppBar position="static" sx={{bgcolor:"#8da9c5"}}>
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
-                    <Box sx={{ flexGrow: 1, display: "flex" }}>
-                        {NavItems.map((item) => {
-                            return (
-                                <Link
-                                    key={item.title}
-                                    style={{ textDecoration: "none" }}
-                                    to={item.LinkTo}
-                                >
-                                    <Button
-                                        sx={{
-                                            my: 2,
-                                            color: "white",
-                                            display: "block",
-                                            
-                                        }}
+        <>
+            <AppBar position="static" sx={{ bgcolor: "#8da9c5" }}>
+                <Container maxWidth="xl">
+                    <Toolbar disableGutters>
+                        <Box sx={{ flexGrow: 1, display: "flex" }}>
+                            {NavItems.map((item) => {
+                                return (
+                                    <Link
+                                        key={item.title}
+                                        style={{ textDecoration: "none" }}
+                                        to={item.LinkTo}
                                     >
-                                        {item.title}
-                                    </Button>
-                                </Link>
-                            )
-                        })}
+                                        <Button
+                                            sx={{
+                                                my: 2,
+                                                color: "white",
+                                                display: "block",
 
-                    </Box>
-                </Toolbar>
-            </Container>
-        </AppBar>
+                                            }}
+                                        >
+                                            {item.title}
+                                        </Button>
+                                    </Link>
+                                )
+                            })}
+                        </Box>
+                        <Link
+                            style={{ textDecoration: "none" }}
+                            to="/artwork"
+                        >
+                        
+                                <InputBase
+                                    style={{backgroundColor: "#d7c3db"}}
+                                    placeholder="Search..."
+                                    // inputProps={{ 'aria-label': 'search' }}
+                                    onChange={handleChange}
+                                    value={userInput}
+                                />
+                       
+                        </Link>
+                    </Toolbar>
+                </Container>
+            </AppBar>
+
+        </>
     )
+
+
 }
 
 export default NavBar
